@@ -7,13 +7,15 @@ function getComputerChoice() {
 	const decision = choices[randomChoice];
 	return decision;
 
- }
+ } getComputerChoice();
 
  //Create a way for the user to input their answer
 
- function playerDecision() {
+ function playerDecision() { 
+	const userInput = prompt('Make your decision');
+	return userInput;
 
- }
+ } playerDecision();
 
  //Create a comparison about which RPS beats what
 
