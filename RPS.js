@@ -23,36 +23,39 @@ function getComputerChoice() {
 
 
 	if (playerDecision === 'rock' && computerChoice === 'scissors') {
-		Humanity += 1;
-		alert('Humanity Wins');
+		alert('Humanity wins' + ' ' + 'your score is' + ' ' + Humanity);
 	} else if (playerDecision === 'scissors' && computerChoice === 'paper') {
-		Humanity += 1;
-		alert('Humanity Wins');
+		alert('Humanity wins' + ' ' + 'your score is' + ' ' + Humanity);
 	} else if (playerDecision === 'paper' && computerChoice === 'rock') {
-		Humanity += 1;
-		alert('Humanity Wins');
+		alert('Humanity wins' + ' ' + 'your score is' + ' ' + Humanity);
 	} else if (playerDecision === 'rock' && computerChoice === 'paper') {
-		AI += 1;
-		alert('AI Wins');
+		alert('AI wins' + ' ' + 'AIs score is' + ' ' + AI);
 	} else if (playerDecision === 'scissors' && computerChoice === 'rock') {
-		AI += 1;
-		alert('AI Wins');
+		alert('AI wins' + ' ' + 'AIs score is' + ' ' + AI);
 	} else if (playerDecision === 'paper' && computerChoice === 'scissors') {
-		AI += 1;
-		alert('AI Wins');
+		alert('AI wins' + ' ' + 'AIs score is' + ' ' + AI);
 	} else if (playerDecision === computerChoice) {
-		alert('It is a tie');
+		alert('It is a tie' + ' ' + 'the score is' + ' ' + 'AI' + ' ' + AI + 'Humanity' + ' ' + Humanity );
 	} else if (playerDecision != 'rock' || 'paper' || 'scissors') {
 		alert('Invalid, do not tempt me human!')
-	}
+	} 
 
  } round();
 
+ //Play game until one user gets to 5
+
  function game() {
-	if (Humanity >= 5) {
-		alert('Game over, humanity is saved!');
-	} else if (AI >= 5) {
-		alert('Game over, humanity is doomed');
+
+	if (playerDecision === True) {
+		Humanity += 1;
+	} else if (computerChoice === True) {
+		AI += 1;
+	} if (playerDecision >= 5) {
+		alert('Game over, Humanity is saved!')
+	} else if (computerChoice >= 5) {
+		alert('Game over, AI rules the world!')
 	}
-  }
+
+
+  } game();
 
