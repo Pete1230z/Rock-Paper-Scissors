@@ -17,28 +17,39 @@ function getComputerChoice() {
 
 
  function round() {
+	
+   while (Humanity < 5 && AI < 5) {
 
 	let computerChoice = getComputerChoice();
     let playerDecision = prompt('Make your decision!', '').toLowerCase();
 
-
 	if (playerDecision === 'rock' && computerChoice === 'scissors') {
+		Humanity += 1;
 		alert('Humanity wins' + ' ' + 'your score is' + ' ' + Humanity);
 	} else if (playerDecision === 'scissors' && computerChoice === 'paper') {
+		Humanity += 1;
 		alert('Humanity wins' + ' ' + 'your score is' + ' ' + Humanity);
 	} else if (playerDecision === 'paper' && computerChoice === 'rock') {
+		Humanity += 1;
 		alert('Humanity wins' + ' ' + 'your score is' + ' ' + Humanity);
 	} else if (playerDecision === 'rock' && computerChoice === 'paper') {
+		AI += 1;
 		alert('AI wins' + ' ' + 'AIs score is' + ' ' + AI);
 	} else if (playerDecision === 'scissors' && computerChoice === 'rock') {
+		AI += 1;
 		alert('AI wins' + ' ' + 'AIs score is' + ' ' + AI);
 	} else if (playerDecision === 'paper' && computerChoice === 'scissors') {
+		AI += 1;
 		alert('AI wins' + ' ' + 'AIs score is' + ' ' + AI);
 	} else if (playerDecision === computerChoice) {
-		alert('It is a tie' + ' ' + 'the score is' + ' ' + 'AI' + ' ' + AI + 'Humanity' + ' ' + Humanity );
+		alert('It is a tie' + ' ' + 'the score is' + ' ' + 'AI' + ' ' + AI + ' ' + 'Humanity' + ' ' + Humanity );
 	} else if (playerDecision != 'rock' || 'paper' || 'scissors') {
-		alert('Invalid, do not tempt me human!')
+		alert('Invalid answer, do not tempt me human!')
 	} 
+
+	round();
+
+  }
 
  } round();
 
@@ -46,16 +57,11 @@ function getComputerChoice() {
 
  function game() {
 
-	if (playerDecision === True) {
-		Humanity += 1;
-	} else if (computerChoice === True) {
-		AI += 1;
-	} if (playerDecision >= 5) {
+	if (Humanity >= 5) {
 		alert('Game over, Humanity is saved!')
-	} else if (computerChoice >= 5) {
-		alert('Game over, AI rules the world!')
+	} else if (AI >= 5) {
+		alert('Game over, Humanity is doomed!')
 	}
-
 
   } game();
 
