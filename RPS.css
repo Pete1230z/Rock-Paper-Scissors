@@ -1,0 +1,19 @@
+h1 {
+	color: red;
+	text-align: center;
+	font-size: 100px;
+	white-space: nowrap;
+	overflow: hidden;
+	animation-duration: 4s;
+	animation-timing-function: ease;
+	animation-delay: 0s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode: none;
+	animation-play-state: running;
+	animation-timeline: auto;
+}
+
+@keyframes introduction {
+	from { width: 0; }
+}

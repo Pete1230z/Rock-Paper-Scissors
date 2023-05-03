@@ -1,4 +1,6 @@
 
+//Begins function of actual RPS game
+
 let Humanity = 0;
 let AI = 0;
 
@@ -14,6 +16,7 @@ function getComputerChoice() {
  } getComputerChoice();
 
  //play a round of game
+
 
 
  function round() {
@@ -47,11 +50,13 @@ function getComputerChoice() {
 		alert('Invalid answer, do not tempt me human!')
 	} 
 
-	round();
 
   }
 
- } round();
+ } 
+
+ document.getElementById("button").addEventListener("click", round())
+
 
  //Play game until one user gets to 5
 
