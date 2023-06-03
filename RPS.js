@@ -22,7 +22,7 @@ function getComputerChoice() {
    while (Humanity < 5 && AI < 5) {
 
 	let computerChoice = getComputerChoice();
-    let playerDecision = prompt('Make your decision!', '').toLowerCase();
+    //let playerDecision = prompt('Make your decision!', '').toLowerCase();
 
 	if (playerDecision === 'rock' && computerChoice === 'scissors') {
 		Humanity += 1;
@@ -53,24 +53,28 @@ function getComputerChoice() {
 
  } 
 
- let rock = document.getElementById('btn').addEventListener('click', round());
+ let paper = document.querySelector('.paper')
+ rock.addEventListener('click', round());
 
- let scissors = document.getElementById('btn').addEventListener('click', round());
+ let rock = document.querySelector('.rocks')
+ rock.addEventListener('click', round());
 
- let paper = document.getElementById('btn').addEventListener('click', round());
+ let scissors = document.querySelector('.scissors')
+ rock.addEventListener('click', round());
+
 
 
  //Play game until one user gets to 5
 
- //function game() {
+ function game() {
 
-	//if (Humanity >= 5) {
-	//	alert('Game over, Humanity is saved!')
-	//} else if (AI >= 5) {
+	if (Humanity >= 5) {
+		alert('Game over, Humanity is saved!')
+	} else if (AI >= 5) {
 		//alert('Game over, Humanity is doomed!')
-	//}
+	}
 
-  //} game();
+  } game();
 
 //1. For now, remove the logic that plays exactly five rounds.
 //2. Create three buttons, one for each selection. Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked. (you can keep the console.logs for this step)
