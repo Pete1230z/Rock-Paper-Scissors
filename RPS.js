@@ -1,10 +1,11 @@
 
-//Begins function of actual RPS game
+//Sets max rounds and sets up scores
 
-let Humanity = 0;
-let AI = 0;
+let maxRounds = 5;
+let scoreHumanity = 0;
+let scoreAI = 0;
 
-//Create function to generate random computer choice
+//Define functions
 
 function getComputerChoice() { 
 
@@ -12,73 +13,65 @@ function getComputerChoice() {
 	const randomChoice = Math.floor(Math.random() * choices.length);
 	const decision = choices[randomChoice];
 	return decision;
+ }
 
- } getComputerChoice();
+ function scoreMessage() {
+	return "The score is:\n AI: " + scoreAI + "\n Humanity: " + scoreHumanity;
+ }
 
- //play a round of game
-
- function round() {
-	
-   while (Humanity < 5 && AI < 5) {
+ function round(playerDecision) {
 
 	let computerChoice = getComputerChoice();
-    //let playerDecision = prompt('Make your decision!', '').toLowerCase();
 
-	if (playerDecision === 'rock' && computerChoice === 'scissors') {
-		Humanity += 1;
-		alert('Humanity wins' + ' ' + 'your score is' + ' ' + Humanity);
-	} else if (playerDecision === 'scissors' && computerChoice === 'paper') {
-		Humanity += 1;
-		alert('Humanity wins' + ' ' + 'your score is' + ' ' + Humanity);
-	} else if (playerDecision === 'paper' && computerChoice === 'rock') {
-		Humanity += 1;
-		alert('Humanity wins' + ' ' + 'your score is' + ' ' + Humanity);
-	} else if (playerDecision === 'rock' && computerChoice === 'paper') {
-		AI += 1;
-		alert('AI wins' + ' ' + 'AIs score is' + ' ' + AI);
-	} else if (playerDecision === 'scissors' && computerChoice === 'rock') {
-		AI += 1;
-		alert('AI wins' + ' ' + 'AIs score is' + ' ' + AI);
-	} else if (playerDecision === 'paper' && computerChoice === 'scissors') {
-		AI += 1;
-		alert('AI wins' + ' ' + 'AIs score is' + ' ' + AI);
-	} else if (playerDecision === computerChoice) {
-		alert('It is a tie' + ' ' + 'the score is' + ' ' + 'AI' + ' ' + AI + ' ' + 'Humanity' + ' ' + Humanity );
-	} else if (playerDecision != 'rock' || 'paper' || 'scissors') {
-		alert('Invalid answer, do not tempt me human!')
-	} 
+    const playerWins =
+	(playerDecision === 'paper' && computerChoice === 'rock') ||
+	(playerDecision === 'rock' && computerChoice === 'scissors') ||
+	(playerDecision === 'scissors' && computerChoice === 'paper');
 
+	const computerWins =
+	(computerChoice === 'paper' && playerDecision === 'rock') ||
+	(computerChoice === 'rock' && playerDecision === 'scissors') ||
+	(computerChoice === 'scissors' && playerDecision === 'paper');
 
-  }
-
- } 
-
- let paper = document.querySelector('.paper')
- rock.addEventListener('click', round());
-
- let rock = document.querySelector('.rocks')
- rock.addEventListener('click', round());
-
- let scissors = document.querySelector('.scissors')
- rock.addEventListener('click', round());
-
-
-
- //Play game until one user gets to 5
-
- function game() {
-
-	if (Humanity >= 5) {
-		alert('Game over, Humanity is saved!')
-	} else if (AI >= 5) {
-		//alert('Game over, Humanity is doomed!')
+	 if (playerWins) {
+		scoreHumanity++
+		alert ("Humanity Wins! " + scoreMessage());
+		if (scoreHumanity === maxRounds) {
+			endGame();
+		}
+	} else if (computerWins) {
+		scoreAI++
+		alert ("AI wins! " + scoreMessage());
+		if (scoreAI === maxRounds) {
+			endGame();
+		}
+	} else if (scoreAI === scoreHumanity) {
+		alert ("It is a tie! " + scoreMessage());
 	}
+  } 
 
-  } game();
+ function endGame() {
 
-//1. For now, remove the logic that plays exactly five rounds.
-//2. Create three buttons, one for each selection. Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked. (you can keep the console.logs for this step)
-//3. Add a div for displaying results and change all of your console.logs into DOM methods.
-//4. Display the running score, and announce a winner of the game once one player reaches 5 points.
-//5. You will likely have to refactor (rework/rewrite) your original code to make it work for this. That’s OK! Reworking old code is an important part of a programmer’s life.
+	let word = '';
 
+	if (scoreHumanity >= maxRounds) {
+		word = 'saved';
+	} else if (scoreAI >= maxRounds) {
+		word = 'doomed';
+	}
+	alert ("Game over, Humanity is " + word + "!")
+  } 
+
+//Click events
+
+document.querySelector('.paper').addEventListener('click', function() {
+	round('paper')
+});
+
+document.querySelector('.rock').addEventListener('click', function() {
+	round('rock')
+});
+
+document.querySelector('.scissors').addEventListener('click', function() {
+	round('scissors')
+});
